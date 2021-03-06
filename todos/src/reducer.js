@@ -1,4 +1,4 @@
-import uuid from "uuid/v4"
+import { v4 as uuidv4 } from 'uuid';
 
 const INITIAL_STATE = {
   todos: []
@@ -6,7 +6,7 @@ const INITIAL_STATE = {
 
 function reducer(state=INITIAL_STATE, action){
   if(action.type === "ADD_TODO"){
-    return { ...state, todos: [...state.todos, {task: action.task, id: uuid()}] }
+    return { ...state, todos: [...state.todos, {task: action.task, id: uuidv4()}] }
   }
   if (action.type === "UPDATE_TODO") {
     const todos = state.todos.map(todo => {
